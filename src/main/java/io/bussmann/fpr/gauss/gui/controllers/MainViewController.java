@@ -1,5 +1,6 @@
 package io.bussmann.fpr.gauss.gui.controllers;
 
+import io.bussmann.fpr.gauss.math.GaussianElimination;
 import io.bussmann.fpr.gauss.types.GaussMatrix;
 import io.bussmann.fpr.gauss.types.GaussMatrixInput;
 import javafx.fxml.FXML;
@@ -39,6 +40,9 @@ public class MainViewController {
     @FXML
     protected void onCalculateButtonClick() {
         syncInputToMatrix();
+
+        GaussianElimination.solveMatrix(matrix);
+
         syncMatrixToInput();
     }
 
