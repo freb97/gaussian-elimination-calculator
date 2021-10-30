@@ -43,9 +43,29 @@ public class MainViewController {
     }
 
     /**
+     * Called on increase matrix size button click.
+     */
+    @FXML
+    protected void onIncreaseSizeButtonClick() {
+        matrix.increaseSize();
+        initialize();
+    }
+
+    /**
+     * Called on decrease matrix size button click.
+     */
+    @FXML
+    protected void onDecreaseSizeButtonClick() {
+        matrix.decreaseSize();
+        initialize();
+    }
+
+    /**
      * Initializes the matrix input fields.
      */
     private void initializeMatrixInput() {
+        inputGrid.getChildren().clear();
+
         for (int row = 0; row < matrix.size(); row++) {
             for (int column = 0; column < matrix.get(row).size(); column++) {
                 GaussMatrixInput input;

@@ -1,5 +1,4 @@
 module io.bussmann.fpr.gauss {
-    requires java.dotenv;
     requires javafx.controls;
     requires javafx.fxml;
     requires com.fasterxml.jackson.core;

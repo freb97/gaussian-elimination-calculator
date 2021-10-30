@@ -6,12 +6,12 @@ public class GaussMatrix extends Vector<Vector<Float>> {
     /**
      * The row count of the matrix.
      */
-    private int rowCount = 2;
+    private int rowCount;
 
     /**
      * The column count of the matrix.
      */
-    private int columnCount = 3;
+    private int columnCount;
 
     /**
      * Class constructor.
@@ -145,17 +145,55 @@ public class GaussMatrix extends Vector<Vector<Float>> {
     }
 
     /**
+     * Increases the size of the matrix.
+     */
+    public void increaseSize() {
+        int size = rowCount + 1;
+
+        Vector<Float> newRow = new Vector<>();
+
+        for (int column = 0; column < columnCount; column++) {
+            newRow.add((float) 0);
+        }
+
+        add(newRow);
+
+        for (int row = 0; row < size; row++) {
+            get(row).add((float) 0);
+        }
+
+        rowCount = size;
+        columnCount = size + 1;
+    }
+
+    /**
+     * Decreases the size of the matrix.
+     */
+    public void decreaseSize() {
+        int size = rowCount - 1;
+
+        remove(size);
+
+        for (int row = 0; row < rowCount - 1; row++) {
+            get(row).remove(columnCount - 1);
+        }
+
+        rowCount = size;
+        columnCount = size + 1;
+    }
+
+    /**
      * Initializes the matrix with default values for a given size.
      */
     private void initialize() {
-        for (int i = 0; i < rowCount; i++) {
-            Vector<Float> row = new Vector<>();
+        for (int row = 0; row < rowCount; row++) {
+            Vector<Float> newRow = new Vector<>();
 
-            for (int j = 0; j < columnCount; j++) {
-                row.add((float) 0);
+            for (int column = 0; column < columnCount; column++) {
+                newRow.add((float) 0);
             }
 
-            add(row);
+            add(newRow);
         }
     }
 }

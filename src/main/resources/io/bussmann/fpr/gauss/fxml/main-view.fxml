@@ -8,5 +8,9 @@
       fx:controller="io.bussmann.fpr.gauss.gui.controllers.MainViewController">
 
     <GridPane fx:id="inputGrid" />
+
     <Button id="submitButton" onAction="#onCalculateButtonClick" text="Calculate" />
+
+    <Button id="increaseSizeButton" onAction="#onIncreaseSizeButtonClick" text="Increase Matrix Size" />
+    <Button id="decreaseSizeButton" onAction="#onDecreaseSizeButtonClick" text="Decrease Matrix Size" />
 </VBox>
