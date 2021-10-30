@@ -1,0 +1,14 @@
+# IDE files
+.idea
+.vs
+.vscode
+
+# Mac-specific files
+.DS_Store
+
+# ENV file
+.env
+
+# Build files
+target/
+*.iml
