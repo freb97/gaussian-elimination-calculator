@@ -2,7 +2,14 @@ package io.bussmann.fpr.gauss.types;
 
 import java.util.Vector;
 
-public class GaussMatrix extends Vector<Vector<Float>> {
+/**
+ * Gauss matrix.
+ *
+ * Represents a matrix for use with the gaussian elimination algorithm.
+ *
+ * @author Frederik Bußmann
+ */
+public class GaussMatrix extends Vector<Vector<Double>> {
     /**
      * The row count of the matrix.
      */
@@ -40,7 +47,7 @@ public class GaussMatrix extends Vector<Vector<Float>> {
      *
      * @return The value at the given position.
      */
-    public Float getValue(int row, int column) {
+    public Double getValue(int row, int column) {
         return get(row).get(column);
     }
 
@@ -51,7 +58,7 @@ public class GaussMatrix extends Vector<Vector<Float>> {
      * @param column The column of the value.
      * @param value The value to set.
      */
-    public void setValue(int row, int column, float value) {
+    public void setValue(int row, int column, Double value) {
         get(row).set(column, value);
     }
 
@@ -62,7 +69,7 @@ public class GaussMatrix extends Vector<Vector<Float>> {
      *
      * @return The value at the given index.
      */
-    public Float getValueAtIndex(int index) throws IndexOutOfBoundsException {
+    public Double getValueAtIndex(int index) throws IndexOutOfBoundsException {
         Vector<Integer> matrixPosition = indexToMatrixPosition(index);
 
         return getValue(matrixPosition.get(0), matrixPosition.get(1));
@@ -74,7 +81,7 @@ public class GaussMatrix extends Vector<Vector<Float>> {
      * @param index The index of the value.
      * @param value The value to set.
      */
-    public void setValueAtIndex(int index, float value) throws IndexOutOfBoundsException {
+    public void setValueAtIndex(int index, double value) throws IndexOutOfBoundsException {
         Vector<Integer> matrixPosition = indexToMatrixPosition(index);
 
         setValue(matrixPosition.get(0), matrixPosition.get(1), value);
@@ -150,16 +157,16 @@ public class GaussMatrix extends Vector<Vector<Float>> {
     public void increaseSize() {
         int size = rowCount + 1;
 
-        Vector<Float> newRow = new Vector<>();
+        Vector<Double> newRow = new Vector<>();
 
         for (int column = 0; column < columnCount; column++) {
-            newRow.add((float) 0);
+            newRow.add((double) 0);
         }
 
         add(newRow);
 
         for (int row = 0; row < size; row++) {
-            get(row).add((float) 0);
+            get(row).add((double) 0);
         }
 
         rowCount = size;
@@ -170,6 +177,10 @@ public class GaussMatrix extends Vector<Vector<Float>> {
      * Decreases the size of the matrix.
      */
     public void decreaseSize() {
+        if (rowCount < 3) {
+            return;
+        }
+
         int size = rowCount - 1;
 
         remove(size);
@@ -187,10 +198,10 @@ public class GaussMatrix extends Vector<Vector<Float>> {
      */
     private void initialize() {
         for (int row = 0; row < rowCount; row++) {
-            Vector<Float> newRow = new Vector<>();
+            Vector<Double> newRow = new Vector<>();
 
             for (int column = 0; column < columnCount; column++) {
-                newRow.add((float) 0);
+                newRow.add((double) 0);
             }
 
             add(newRow);

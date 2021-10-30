@@ -93,7 +93,7 @@ public class MainViewController {
                 GaussMatrixInput input = (GaussMatrixInput) inputGrid.getChildren().get(index);
 
                 try {
-                    float value = input.getValue();
+                    double value = input.getValue();
                     matrix.setValueAtIndex(index, value);
                 } catch (NumberFormatException exception) {
                     // @TODO: Show error message in program.

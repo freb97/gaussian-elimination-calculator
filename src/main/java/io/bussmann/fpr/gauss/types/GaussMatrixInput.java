@@ -1,8 +1,8 @@
 package io.bussmann.fpr.gauss.types;
 
-import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.FlowPane;
 
 /**
  * Gauss matrix input.
@@ -11,11 +11,11 @@ import javafx.scene.control.TextField;
  *
  * @author Frederik Bußmann
  */
-public class GaussMatrixInput extends Group {
+public class GaussMatrixInput extends FlowPane {
     /**
      * The value of the input.
      */
-    private float value;
+    private double value;
 
     /**
      * The text field of the input.
@@ -51,12 +51,12 @@ public class GaussMatrixInput extends Group {
      * @param column The column of the input.
      * @param value The initial value to set the input.
      */
-    public GaussMatrixInput(int row, int column, float value) {
+    public GaussMatrixInput(int row, int column, double value) {
         this.value = value;
 
         textField = new TextField();
-        textField.setText(Float.toString(value));
-        textField.getStyleClass().add("inputText");
+        textField.setText(Double.toString(value));
+        textField.getStyleClass().add("inputField");
 
         label = new Label();
         label.getStyleClass().add("inputLabel");
@@ -69,7 +69,7 @@ public class GaussMatrixInput extends Group {
         }
 
         getChildren().addAll(textField, label);
-        getStyleClass().add("inputGroup");
+        getStyleClass().add("inputPane");
     }
 
     /**
@@ -77,8 +77,8 @@ public class GaussMatrixInput extends Group {
      *
      * @return The value of the input.
      */
-    public float getValue() {
-        value = Float.parseFloat(textField.getText());
+    public double getValue() {
+        value = Double.parseDouble(textField.getText());
 
         return value;
     }
@@ -88,10 +88,10 @@ public class GaussMatrixInput extends Group {
      *
      * @param value The value to set the input to.
      */
-    public void setValue(float value) {
+    public void setValue(double value) {
         this.value = value;
 
-        textField.setText(Float.toString(value));
+        textField.setText(Double.toString(value));
     }
 
     /**
