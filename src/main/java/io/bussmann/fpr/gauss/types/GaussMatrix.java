@@ -47,7 +47,9 @@ public class GaussMatrix extends Vector<Vector<Double>> {
      *
      * @return The value at the given position.
      */
-    public Double getValue(int row, int column) {
+    public Double getValue(int row, int column) throws IndexOutOfBoundsException {
+        checkMatrixPosition(row, column);
+
         return get(row).get(column);
     }
 
@@ -58,7 +60,7 @@ public class GaussMatrix extends Vector<Vector<Double>> {
      * @param column The column of the value.
      * @param value The value to set.
      */
-    public void setValue(int row, int column, Double value) {
+    public void setValue(int row, int column, double value) {
         get(row).set(column, value);
     }
 
@@ -94,7 +96,7 @@ public class GaussMatrix extends Vector<Vector<Double>> {
      *
      * @return The row and column position vector.
      */
-    public Vector<Integer> indexToMatrixPosition(int index) {
+    public Vector<Integer> indexToMatrixPosition(int index) throws IndexOutOfBoundsException {
         if (index > rowCount * columnCount - 1) {
             String message = "The index " + index + " is bigger than the number of values in the matrix";
             throw new IndexOutOfBoundsException(message);
@@ -115,7 +117,7 @@ public class GaussMatrix extends Vector<Vector<Double>> {
      *
      * @return The calculated index.
      */
-    public int matrixPositionToIndex(int row, int column) {
+    public int matrixPositionToIndex(int row, int column) throws IndexOutOfBoundsException {
         int index = row * columnCount + column;
 
         if (index > rowCount * columnCount - 1) {
@@ -205,6 +207,23 @@ public class GaussMatrix extends Vector<Vector<Double>> {
             }
 
             add(newRow);
+        }
+    }
+
+    /**
+     * Checks if a row and column position exists in the matrix.
+     *
+     * @param row The row to check.
+     * @param column The column to check.
+     */
+    private void checkMatrixPosition(int row, int column) throws IndexOutOfBoundsException {
+        if (row > rowCount - 1) {
+            String message = "Illegal matrix access: Index out of bounds when trying to access row " + row + ".";
+            throw new IndexOutOfBoundsException(message);
+        }
+        if (column > columnCount - 1) {
+            String message = "Illegal matrix access: Index out of bounds when trying to access column " + column + ".";
+            throw new IndexOutOfBoundsException(message);
         }
     }
 }

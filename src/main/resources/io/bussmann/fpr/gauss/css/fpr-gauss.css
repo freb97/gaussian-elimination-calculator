@@ -4,11 +4,12 @@
 }
 
 #controlButtons {
-    -fx-padding: 15.0 15.0 15.0 0.0;
-    -fx-hgap: 10;
-    -fx-vgap: 10;
+    -fx-padding: 15px 15px 15px 0;
+    -fx-hgap: 10px;
+    -fx-vgap: 10px;
 }
 
 .inputLabel {
     -fx-font-size: 16px;
+    -fx-padding: 0 15px 0 5px;
 }

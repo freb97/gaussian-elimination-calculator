@@ -2,7 +2,7 @@ package io.bussmann.fpr.gauss.types;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 
 /**
  * Gauss matrix input.
@@ -11,7 +11,7 @@ import javafx.scene.layout.FlowPane;
  *
  * @author Frederik Bußmann
  */
-public class GaussMatrixInput extends FlowPane {
+public class GaussMatrixInput extends HBox {
     /**
      * The value of the input.
      */
@@ -69,7 +69,7 @@ public class GaussMatrixInput extends FlowPane {
         }
 
         getChildren().addAll(textField, label);
-        getStyleClass().add("inputPane");
+        getStyleClass().add("inputBox");
     }
 
     /**
