@@ -3,7 +3,7 @@ package io.bussmann.fpr.gauss.gui;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import io.bussmann.fpr.gauss.Main;
-import io.bussmann.fpr.gauss.gui.configuration.Configuration;
+import io.bussmann.fpr.gauss.configuration.Configuration;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
