@@ -91,7 +91,12 @@ public class GaussMatrixInput extends HBox {
     public void setValue(double value) {
         this.value = value;
 
-        textField.setText(Double.toString(value));
+        if (value == (long) value) {
+            textField.setText(String.format("%d", (long) value));
+        }
+        else {
+            textField.setText(String.format("%s", value));
+        }
     }
 
     /**
