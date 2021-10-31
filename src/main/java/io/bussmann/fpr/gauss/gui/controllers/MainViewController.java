@@ -70,11 +70,11 @@ public class MainViewController {
     private void initializeMatrixInput() {
         inputGrid.getChildren().clear();
 
-        for (int row = 0; row < matrix.size(); row++) {
-            for (int column = 0; column < matrix.get(row).size(); column++) {
+        for (int row = 0; row < matrix.getRowCount(); row++) {
+            for (int column = 0; column < matrix.getColumnCount(); column++) {
                 GaussMatrixInput input;
 
-                if (column < matrix.get(row).size() - 1) {
+                if (column < matrix.getColumnCount() - 1) {
                     input = new GaussMatrixInput(row + 1, column + 1);
                 }
                 else {
@@ -90,8 +90,8 @@ public class MainViewController {
      * Syncs the input field values to the matrix values.
      */
     private void syncInputToMatrix() {
-        for (int row = 0; row < matrix.size(); row++) {
-            for (int column = 0; column < matrix.get(row).size(); column++) {
+        for (int row = 0; row < matrix.getRowCount(); row++) {
+            for (int column = 0; column < matrix.getColumnCount(); column++) {
                 int index = matrix.matrixPositionToIndex(row, column);
 
                 GaussMatrixInput input = (GaussMatrixInput) inputGrid.getChildren().get(index);
@@ -111,8 +111,8 @@ public class MainViewController {
      * Syncs the matrix values to the input field values.
      */
     private void syncMatrixToInput() {
-        for (int row = 0; row < matrix.size(); row++) {
-            for (int column = 0; column < matrix.get(row).size(); column++) {
+        for (int row = 0; row < matrix.getRowCount(); row++) {
+            for (int column = 0; column < matrix.getColumnCount(); column++) {
                 int index = matrix.matrixPositionToIndex(row, column);
 
                 GaussMatrixInput input = (GaussMatrixInput) inputGrid.getChildren().get(index);

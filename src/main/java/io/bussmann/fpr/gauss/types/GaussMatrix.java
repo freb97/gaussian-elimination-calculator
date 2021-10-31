@@ -90,6 +90,24 @@ public class GaussMatrix extends Vector<Vector<Double>> {
     }
 
     /**
+     * Gets the number of rows in the matrix.
+     *
+     * @return The number of rows.
+     */
+    public int getRowCount() {
+        return rowCount;
+    }
+
+    /**
+     * Gets the number of columns in the matrix.
+     *
+     * @return The number of columns.
+     */
+    public int getColumnCount() {
+        return columnCount;
+    }
+
+    /**
      * Gets the row and column position in the matrix at a given index.
      *
      * @param index The index to convert.
@@ -136,18 +154,22 @@ public class GaussMatrix extends Vector<Vector<Double>> {
     public String toString() {
         StringBuilder value = new StringBuilder();
 
-        for (int row = 0; row < size(); row++) {
+        for (int row = 0; row < rowCount; row++) {
             value.append("[");
 
-            for (int column = 0; column < get(row).size(); column++) {
+            for (int column = 0; column < columnCount; column++) {
                 value.append(get(row).get(column));
 
-                if (column != get(row).size() - 1) {
+                if (column != columnCount - 1) {
                     value.append(", ");
                 }
             }
 
-            value.append("]\n");
+            value.append("]");
+
+            if (row != rowCount - 1) {
+                value.append("\n");
+            }
         }
 
         return value.toString();

@@ -29,7 +29,7 @@ public class TestGaussMatrix {
         matrix = new GaussMatrix(2);
 
         // Assert default matrix values
-        assertEquals("[0.0, 0.0, 0.0]\n[0.0, 0.0, 0.0]\n", matrix.toString());
+        assertEquals("[0.0, 0.0, 0.0]\n[0.0, 0.0, 0.0]", matrix.toString());
     }
 
     /**
@@ -107,13 +107,13 @@ public class TestGaussMatrix {
         matrix = new GaussMatrix(2);
 
         // Assert matrix of size 2
-        assertEquals("[0.0, 0.0, 0.0]\n[0.0, 0.0, 0.0]\n", matrix.toString());
+        assertEquals("[0.0, 0.0, 0.0]\n[0.0, 0.0, 0.0]", matrix.toString());
 
         // Increase matrix size by 1
         matrix.increaseSize();
 
         // Assert matrix of size 3
-        assertEquals("[0.0, 0.0, 0.0, 0.0]\n[0.0, 0.0, 0.0, 0.0]\n[0.0, 0.0, 0.0, 0.0]\n", matrix.toString());
+        assertEquals("[0.0, 0.0, 0.0, 0.0]\n[0.0, 0.0, 0.0, 0.0]\n[0.0, 0.0, 0.0, 0.0]", matrix.toString());
     }
 
     /**
@@ -125,13 +125,13 @@ public class TestGaussMatrix {
         matrix = new GaussMatrix(3);
 
         // Assert matrix of size 3
-        assertEquals("[0.0, 0.0, 0.0, 0.0]\n[0.0, 0.0, 0.0, 0.0]\n[0.0, 0.0, 0.0, 0.0]\n", matrix.toString());
+        assertEquals("[0.0, 0.0, 0.0, 0.0]\n[0.0, 0.0, 0.0, 0.0]\n[0.0, 0.0, 0.0, 0.0]", matrix.toString());
 
         // Decrease matrix size by 1
         matrix.decreaseSize();
 
         // Assert matrix of size 2
-        assertEquals("[0.0, 0.0, 0.0]\n[0.0, 0.0, 0.0]\n", matrix.toString());
+        assertEquals("[0.0, 0.0, 0.0]\n[0.0, 0.0, 0.0]", matrix.toString());
     }
 
     /**
