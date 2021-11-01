@@ -21,6 +21,11 @@ public class Configuration {
     public Map<String, String> stage;
 
     /**
+     * Matrix configuration instance.
+     */
+    public Map<String, String> matrix;
+
+    /**
      * Gets a stage configuration value.
      *
      * @param key The key of the config value.

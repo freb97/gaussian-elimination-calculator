@@ -3,6 +3,7 @@ package io.bussmann.fpr.gauss.gui.controllers;
 import io.bussmann.fpr.gauss.math.GaussianElimination;
 import io.bussmann.fpr.gauss.types.GaussMatrix;
 import io.bussmann.fpr.gauss.types.GaussMatrixInput;
+import io.bussmann.fpr.gauss.types.GaussMatrixSolutionTrace;
 import javafx.fxml.FXML;
 import javafx.scene.layout.GridPane;
 
@@ -41,7 +42,15 @@ public class MainViewController {
     protected void onCalculateButtonClick() {
         syncInputToMatrix();
 
-        GaussianElimination.solveMatrix(matrix);
+        GaussMatrixSolutionTrace solution = GaussianElimination.solveMatrix(matrix);
+
+        System.out.println("\n");
+        for (int i = 0; i < solution.getStepCount(); i++) {
+            System.out.println("Step " + (i + 1));
+            System.out.println(solution.getStepLabel(i));
+            System.out.println(solution.getStep(i));
+            System.out.println("\n");
+        }
 
         syncMatrixToInput();
     }

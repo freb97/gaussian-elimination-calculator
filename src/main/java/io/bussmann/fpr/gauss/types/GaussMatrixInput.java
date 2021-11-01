@@ -60,12 +60,13 @@ public class GaussMatrixInput extends HBox {
 
         label = new Label();
         label.getStyleClass().add("inputLabel");
+        label.setEllipsisString("");
 
         if (row != 0 && column != 0) {
             label.setText("x" + generateSubscript(row) + generateSubscript(column));
         }
         else if (row != 0) {
-            label.setText("y" + generateSubscript(row));
+            label.setText("b" + generateSubscript(row));
         }
 
         getChildren().addAll(textField, label);
@@ -77,7 +78,7 @@ public class GaussMatrixInput extends HBox {
      *
      * @return The value of the input.
      */
-    public double getValue() {
+    public double getValue() throws NumberFormatException {
         value = Double.parseDouble(textField.getText());
 
         return value;

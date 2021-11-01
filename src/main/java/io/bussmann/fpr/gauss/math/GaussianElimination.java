@@ -1,6 +1,7 @@
 package io.bussmann.fpr.gauss.math;
 
 import io.bussmann.fpr.gauss.types.GaussMatrix;
+import io.bussmann.fpr.gauss.types.GaussMatrixSolutionTrace;
 
 import java.util.Vector;
 
@@ -17,40 +18,73 @@ public class GaussianElimination {
      *
      * @param matrix The matrix to solve.
      */
-    public static void solveMatrix(GaussMatrix matrix) {
+    public static GaussMatrixSolutionTrace solveMatrix(GaussMatrix matrix) {
+        GaussMatrixSolutionTrace trace = new GaussMatrixSolutionTrace(matrix);
+
         // Iterate matrix rows
         for (int i = 0; i < matrix.getRowCount(); i++) {
-            // Keep track of number of swaps performed to ensure a finite solution
+            // Keep track of number of swaps performed
             int swapCount = 0;
 
-            // Check pivot and swap row if necessary
-            while (matrix.getValue(i, i) < 1e-9) {
+            // Swap rows if pivot is 0
+            while (isEqual(matrix.getValue(i, i), 0)) {
                 swapCount++;
 
                 // Check number of swaps performed
                 if (swapCount < matrix.getRowCount() - i) {
                     swapRow(matrix, i, i + 1);
+
+                    trace.addSwap(matrix, i + 1, i + 2, false);
                 }
                 else {
                     break;
                 }
             }
 
-            // Divide row by pivot value to reset pivot to 1
-            matrix.set(i, divideRow(matrix.get(i), matrix.getValue(i, i)));
+            // Divide row by pivot value to reset pivot to 1 (if pivot not already 1)
+            if (!isEqual(matrix.getValue(i, i), 1)) {
+                double divisor = matrix.getValue(i, i);
+                matrix.set(i, divideRow(matrix.get(i), divisor));
+
+                trace.addDivision(matrix, i + 1, divisor, false);
+            }
 
             // Clear column values underneath the current pivot
-            for (int j = 0; j < matrix.getRowCount(); j++) {
-                if (j > i) {
-                    matrix.set(j, subtractRow(matrix.get(j), multiplyRow(matrix.get(i), matrix.getValue(j, i))));
+            for (int j = i + 1; j < matrix.getRowCount(); j++) {
+                double scalar = matrix.getValue(j, i);
+
+                if (isEqual(scalar, 1)) {
+                    matrix.set(j, subtractRow(matrix.get(j), matrix.get(i)));
+
+                    trace.addSubtract(matrix, i + 1, j + 1, false);
+                }
+                else if (!isEqual(scalar, 0)) {
+                    matrix.set(j, subtractRow(matrix.get(j), multiplyRow(matrix.get(i), scalar)));
+
+                    trace.addMultiplyAndSubtract(matrix, i + 1, j + 1, scalar, false);
                 }
             }
+        }
 
-            // Back substitution
+        // Perform back substitution
+        for (int i = 0; i < matrix.getRowCount(); i++) {
             for (int j = i - 1; j >= 0; j--) {
-                matrix.set(j, subtractRow(matrix.get(j), multiplyRow(matrix.get(i), matrix.getValue(j, i))));
+                double scalar = matrix.getValue(j, i);
+
+                if (isEqual(scalar, 1)) {
+                    matrix.set(j, subtractRow(matrix.get(j), matrix.get(i)));
+
+                    trace.addSubtract(matrix, i + 1, j + 1, true);
+                }
+                else if (!isEqual(scalar, 0)) {
+                    matrix.set(j, subtractRow(matrix.get(j), multiplyRow(matrix.get(i), scalar)));
+
+                    trace.addMultiplyAndSubtract(matrix, i + 1, j + 1, scalar, true);
+                }
             }
         }
+
+        return trace;
     }
 
     /**
@@ -117,5 +151,17 @@ public class GaussianElimination {
         Vector<Double> tempRow = matrix.get(row1);
         matrix.set(row1, matrix.get(row2));
         matrix.set(row2, tempRow);
+    }
+
+    /**
+     * Checks if two given doubles are considered "equal".
+     *
+     * @param one The first double to compare.
+     * @param two The second double to compare.
+     *
+     * @return True if equal, false if not.
+     */
+    private static boolean isEqual(double one, double two) {
+        return Math.abs(Double.compare(one, two)) < 1e-9;
     }
 }
