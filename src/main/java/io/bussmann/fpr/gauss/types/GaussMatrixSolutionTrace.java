@@ -27,14 +27,10 @@ public class GaussMatrixSolutionTrace {
 
     /**
      * Class constructor.
-     *
-     * @param matrix The matrix that is being tried to solve.
      */
-    public GaussMatrixSolutionTrace(GaussMatrix matrix) {
+    public GaussMatrixSolutionTrace() {
         steps = new Vector<>();
         stepLabels = new Vector<>();
-
-        addStep(matrix, "Initial state of the matrix.");
     }
 
     /**

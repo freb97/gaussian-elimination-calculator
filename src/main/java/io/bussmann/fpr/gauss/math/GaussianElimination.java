@@ -19,7 +19,7 @@ public class GaussianElimination {
      * @param matrix The matrix to solve.
      */
     public static GaussMatrixSolutionTrace solveMatrix(GaussMatrix matrix) {
-        GaussMatrixSolutionTrace trace = new GaussMatrixSolutionTrace(matrix);
+        GaussMatrixSolutionTrace trace = new GaussMatrixSolutionTrace();
 
         // Iterate matrix rows
         for (int i = 0; i < matrix.getRowCount(); i++) {
