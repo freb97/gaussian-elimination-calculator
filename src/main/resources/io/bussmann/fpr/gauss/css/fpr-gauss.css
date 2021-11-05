@@ -5,12 +5,36 @@
 
 #controlButtons {
     -fx-padding: 15px 15px 15px 0;
-    -fx-hgap: 10px;
-    -fx-vgap: 10px;
+    -fx-hgap: 15px;
+    -fx-vgap: 15px;
 }
 
 .inputLabel {
-    -fx-font-size: 16px;
+    -fx-font-size: 14px;
     -fx-padding: 0 15px 0 5px;
     -fx-min-width: 30px;
+}
+
+.stepLabel {
+    -fx-font-size: 14px;
+    -fx-padding: 10px 15px 5px 15px;
+}
+
+.outputLabel {
+    -fx-font-size: 12px;
+}
+
+.separator {
+    -fx-padding: 10px;
+}
+
+#outputGrid {
+    -fx-padding: 0 0 10px 0;
+}
+
+.outputField {
+    -fx-vgap: 5px;
+    -fx-hgap: 5px;
+    -fx-font-size: 16px;
+    -fx-padding: 0 15px 15px 15px;
 }
