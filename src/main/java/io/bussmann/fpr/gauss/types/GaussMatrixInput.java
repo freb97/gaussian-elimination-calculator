@@ -1,5 +1,6 @@
 package io.bussmann.fpr.gauss.types;
 
+import io.bussmann.fpr.gauss.helpers.Subscript;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
@@ -63,10 +64,10 @@ public class GaussMatrixInput extends HBox {
         label.setEllipsisString("");
 
         if (row != 0 && column != 0) {
-            label.setText("x" + generateSubscript(row) + generateSubscript(column));
+            label.setText("x" + new Subscript(row) + new Subscript(column));
         }
         else if (row != 0) {
-            label.setText("b" + generateSubscript(row));
+            label.setText("b" + new Subscript(row));
         }
 
         getChildren().addAll(textField, label);
@@ -98,20 +99,5 @@ public class GaussMatrixInput extends HBox {
         else {
             textField.setText(String.format("%s", value));
         }
-    }
-
-    /**
-     * Generates a subscript number string from a given integer.
-     *
-     * @param number The number to convert.
-     *
-     * @return The converted number as a string.
-     */
-    private String generateSubscript(int number) {
-        StringBuilder value = new StringBuilder();
-        for (char ch : String.valueOf(number).toCharArray()) {
-            value.append((char) ('\u2080' + (ch - '0')));
-        }
-        return value.toString();
     }
 }

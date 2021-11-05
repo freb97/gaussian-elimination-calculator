@@ -3,8 +3,10 @@ package io.bussmann.fpr.gauss.gui.controllers;
 import io.bussmann.fpr.gauss.math.GaussianElimination;
 import io.bussmann.fpr.gauss.types.GaussMatrix;
 import io.bussmann.fpr.gauss.types.GaussMatrixInput;
+import io.bussmann.fpr.gauss.types.GaussMatrixOutput;
 import io.bussmann.fpr.gauss.types.GaussMatrixSolutionTrace;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
 /**
@@ -27,6 +29,12 @@ public class MainViewController {
     private GridPane inputGrid;
 
     /**
+     * Matrix solution output grid pane.
+     */
+    @FXML
+    private GridPane outputGrid;
+
+    /**
      * Initializes the main view.
      */
     @FXML
@@ -44,15 +52,7 @@ public class MainViewController {
 
         GaussMatrixSolutionTrace solution = GaussianElimination.solveMatrix(matrix);
 
-        System.out.println("\n");
-        for (int i = 0; i < solution.getStepCount(); i++) {
-            System.out.println("Step " + (i + 1));
-            System.out.println(solution.getStepLabel(i));
-            System.out.println(solution.getStep(i));
-            System.out.println("\n");
-        }
-
-        syncMatrixToInput();
+        displaySolution(solution);
     }
 
     /**
@@ -74,6 +74,29 @@ public class MainViewController {
     }
 
     /**
+     * Displays the solution of the matrix with steps.
+     */
+    private void displaySolution(GaussMatrixSolutionTrace trace) {
+        outputGrid.getChildren().clear();
+
+        int currentRow = 0;
+        for (int step = 0; step < trace.getStepCount(); step++) {
+            GaussMatrix currentStepMatrix = trace.getStep(step);
+            String currentStepLabel = "Step " + (step + 1) + ": " + trace.getStepLabel(step);
+
+            Label label = new Label(currentStepLabel);
+            label.getStyleClass().add("stepLabel");
+            GaussMatrixOutput output = new GaussMatrixOutput(currentStepMatrix);
+
+            outputGrid.add(label, 0, currentRow);
+            currentRow++;
+
+            outputGrid.add(output, 0, currentRow);
+            currentRow++;
+        }
+    }
+
+    /**
      * Initializes the matrix input fields.
      */
     private void initializeMatrixInput() {
@@ -90,7 +113,7 @@ public class MainViewController {
                     input = new GaussMatrixInput(row + 1, 0);
                 }
 
-                inputGrid.add(input, column, row, 1, 1);
+                inputGrid.add(input, column, row);
             }
         }
     }
@@ -109,6 +132,8 @@ public class MainViewController {
                     double value = input.getValue();
                     matrix.setValueAtIndex(index, value);
                 } catch (NumberFormatException exception) {
+                    input.setValue(0);
+
                     // @TODO: Show error message in program.
                     System.out.println(exception.getMessage());
                 }
