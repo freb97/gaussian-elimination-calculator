@@ -1,6 +1,7 @@
 # Gaussian Elimination Calculator
 
-An incredibly inefficient calculator for the gaussian elimination algorithm to solve systems of linear equations
+An incredibly inefficient calculator for the gaussian 
+elimination algorithm to solve systems of linear equations
 with multiple unknown variables, written in Java.
 
 ## Getting started
@@ -19,6 +20,9 @@ with multiple unknown variables, written in Java.
 ```bash
 $ mvn install
 ```
+
+The jar file and build information is then written to the
+newly created directory ```targets```.
 
 ### Usage
 
