@@ -16,12 +16,16 @@
 }
 
 .stepLabel {
-    -fx-font-size: 14px;
+    -fx-font-size: 16px;
     -fx-padding: 10px 15px 5px 15px;
 }
 
-.outputLabel {
-    -fx-font-size: 12px;
+.outputValueLabel {
+    -fx-font-size: 14px;
+}
+
+.outputVariableLabel {
+    -fx-font-size: 14px;
 }
 
 .separator {
