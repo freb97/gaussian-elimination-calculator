@@ -43,3 +43,11 @@ $ mvn javadoc:javadoc
 ```
 
 The generated files are accessible in the directory ```target/site/apidocs```.
+
+### Tests
+
+To run only the unit tests, call the maven executable with the ```test``` parameter:
+
+```bash
+$ mvn test
+```
