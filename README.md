@@ -32,3 +32,14 @@ installed java runtime:
 ```bash
 $ java -jar ./target/fpr.gauss-1.0-SNAPSHOT.jar
 ```
+
+### Documentation
+
+To generate the JavaDoc HTML documentation files, run the maven
+executable with the parameter ```javadoc:javadoc```:
+
+```bash
+$ mvn javadoc:javadoc
+```
+
+The generated files are accessible in the directory ```target/site/apidocs```.
