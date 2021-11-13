@@ -12,6 +12,13 @@ be read.
 
 This calculator currently only works with uniquely solvable matrices.
 
+The core of the algorithm is located in the
+[GaussianElimination.java](https://github.com/freb97/gaussian-elimination-calculator/blob/main/src/main/java/io/bussmann/fpr/gauss/math/GaussianElimination.java)
+file, with the matrix data being held in an instance of the
+[GaussMatrix.java](https://github.com/freb97/gaussian-elimination-calculator/blob/main/src/main/java/io/bussmann/fpr/gauss/types/GaussMatrix.java)
+class.
+
+
 ## Getting started
 
 ### Dependencies
