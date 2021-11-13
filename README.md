@@ -34,8 +34,14 @@ newly created directory ```targets```.
 
 ### Usage
 
-To run the application, pass the ```.jar``` file to the
-installed java runtime:
+To run the application, use the maven exec command:
+
+```bash
+$ mvn exec:exec
+```
+
+If you don't want to use the same VM as maven, you can pass
+the ```.jar``` file to the locally installed java runtime:
 
 ```bash
 $ java -jar ./target/fpr.gauss-1.0-SNAPSHOT.jar
@@ -44,7 +50,7 @@ $ java -jar ./target/fpr.gauss-1.0-SNAPSHOT.jar
 ### Documentation
 
 To generate the JavaDoc HTML documentation files, run the maven
-executable with the parameter ```javadoc:javadoc```:
+javadoc command:
 
 ```bash
 $ mvn javadoc:javadoc
@@ -54,8 +60,10 @@ The generated files are accessible in the directory ```target/site/apidocs```.
 
 ### Tests
 
-To run only the unit tests, call the maven executable with the ```test``` parameter:
+To run only the unit tests, run the maven test command:
 
 ```bash
 $ mvn test
 ```
+
+The generated test resulsts are accesible in the directory ```target/surefire-reports```.
