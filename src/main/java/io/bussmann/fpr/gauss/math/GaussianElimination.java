@@ -32,12 +32,18 @@ public class GaussianElimination {
 
                 // Check number of swaps performed
                 if (swapCount < matrix.getRowCount() - i) {
+                    // Check if row to swap with is 0 too and skip swap operation
+                    if (isEqual(matrix.getValue(i + 1, i), 0)) {
+                        continue;
+                    }
+
                     swapRow(matrix, i, i + 1);
 
                     trace.addSwap(matrix, i + 1, i + 2, false);
                 }
                 else {
-                    break;
+                    trace.addInvalid(matrix);
+                    return trace;
                 }
             }
 

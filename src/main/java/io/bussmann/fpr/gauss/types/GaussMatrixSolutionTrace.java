@@ -11,6 +11,11 @@ import java.util.Vector;
  */
 public class GaussMatrixSolutionTrace {
     /**
+     * Stores the matrices' validity state for the calculation.
+     */
+    public boolean invalid = false;
+
+    /**
      * Stores the matrix values for each step performed.
      */
     private final Vector<GaussMatrix> steps;
@@ -122,6 +127,19 @@ public class GaussMatrixSolutionTrace {
         }
 
         label += "Multiply row " + row1 + " by " + scalar + " and subtract from row " + row2 + ".";
+
+        addStep(matrix, label);
+    }
+
+    /**
+     * Adds error information about a given unsolvable matrix to the solution trace.
+     *
+     * @param matrix The matrix to record.
+     */
+    public void addInvalid(GaussMatrix matrix) {
+        invalid = true;
+
+        String label = "Invalid input given: Matrix has no unique solution.";
 
         addStep(matrix, label);
     }

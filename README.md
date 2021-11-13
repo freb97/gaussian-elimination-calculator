@@ -1,8 +1,16 @@
 # Gaussian Elimination Calculator
 
-An incredibly inefficient calculator for the gaussian 
+A calculator for the gaussian 
 elimination algorithm to solve systems of linear equations
 with multiple unknown variables, written in Java.
+
+For understanding the maths behind it, the calculator has
+a built-in calculation path step trace, and an easy-to-use GUI.
+Note that the calulator will only change a given matrix to the
+reduced row echelon form, from which the solution vector can
+be read.
+
+This calculator currently only works with uniquely solvable matrices.
 
 ## Getting started
 
