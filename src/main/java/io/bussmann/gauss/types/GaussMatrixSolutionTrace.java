@@ -76,17 +76,17 @@ public class GaussMatrixSolutionTrace {
      *
      * @param matrix The matrix to record.
      * @param row The row to divide.
-     * @param divisor The number to divide the row by.
+     * @param scalar The number to divide the row by.
      * @param backSubstitution Records this step as a part of back substitution.
      */
-    public void addDivision(GaussMatrix matrix, int row, double divisor, boolean backSubstitution) {
+    public void addDivision(GaussMatrix matrix, int row, double scalar, boolean backSubstitution) {
         String label = "";
 
         if (backSubstitution) {
             label += "Back substitution: ";
         }
 
-        label += "Divide row " + row + " by " + divisor + ".";
+        label += "Divide row " + row + " by " + scalar + ".";
 
         addStep(matrix, label);
     }

@@ -49,10 +49,10 @@ public class GaussianElimination {
 
             // Divide row by pivot value to reset pivot to 1 (if pivot not already 1)
             if (!isEqual(matrix.getValue(i, i), 1)) {
-                double divisor = matrix.getValue(i, i);
-                matrix.set(i, divideRow(matrix.get(i), divisor));
+                double scalar = matrix.getValue(i, i);
+                matrix.set(i, divideRow(matrix.get(i), scalar));
 
-                trace.addDivision(matrix, i + 1, divisor, false);
+                trace.addDivision(matrix, i + 1, scalar, false);
             }
 
             // Clear column values underneath the current pivot
@@ -110,13 +110,13 @@ public class GaussianElimination {
     }
 
     /**
-     * Divides a given row by a given divisor.
+     * Divides a given row by a given scalar.
      *
      * @param row The row to divide.
-     * @param divisor The divisor to divide the row by.
+     * @param scalar The scalar to divide the row by.
      */
-    public static Vector<Double> divideRow(Vector<Double> row, double divisor) throws ArithmeticException {
-        if (divisor == 0) {
+    public static Vector<Double> divideRow(Vector<Double> row, double scalar) throws ArithmeticException {
+        if (scalar == 0) {
             String message = "Cannot divide values by zero";
             throw new ArithmeticException(message);
         }
@@ -124,7 +124,7 @@ public class GaussianElimination {
         Vector<Double> result = new Vector<>();
 
         for (Double value : row) {
-            result.add(value / divisor + (double) 0);
+            result.add(value / scalar + (double) 0);
         }
 
         return result;
