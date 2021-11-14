@@ -4,7 +4,6 @@ import io.bussmann.fpr.gauss.helpers.Subscript;
 import io.bussmann.fpr.gauss.helpers.Superscript;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
-import org.apache.commons.math3.fraction.Fraction;
 
 /**
  * Gauss matrix output.
@@ -71,16 +70,6 @@ public class GaussMatrixOutput extends GridPane {
      * @param value The value to set.
      */
     private void setValue(Label label, double value) {
-//        if (value % 1 != 0) {
-//            Fraction fraction = new Fraction(value);
-//            String output = generateVulgarFraction(fraction.getNumerator(), fraction.getDenominator());
-//
-//            if (!output.equals("")) {
-//                label.setText(output);
-//                return;
-//            }
-//        }
-
         if (value == (long) value) {
             label.setText(String.format("%d", (long) value));
         }
