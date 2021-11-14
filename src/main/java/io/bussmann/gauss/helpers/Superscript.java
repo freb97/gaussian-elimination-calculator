@@ -1,4 +1,4 @@
-package io.bussmann.fpr.gauss.helpers;
+package io.bussmann.gauss.helpers;
 
 /**
  * Superscript.

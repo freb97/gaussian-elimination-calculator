@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <VBox id="mainView" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="io.bussmann.fpr.gauss.gui.controllers.MainViewController">
+      fx:controller="io.bussmann.gauss.gui.controllers.MainViewController">
 
     <FlowPane id="controlButtons">
         <Button id="increaseSizeButton" onAction="#onIncreaseSizeButtonClick" text="Increase Matrix Size" />

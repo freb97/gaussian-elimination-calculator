@@ -1,4 +1,4 @@
-package io.bussmann.fpr.gauss.types;
+package io.bussmann.gauss.types;
 
 import java.util.Vector;
 

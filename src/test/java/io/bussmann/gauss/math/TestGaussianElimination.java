@@ -1,6 +1,6 @@
-package io.bussmann.fpr.gauss.math;
+package io.bussmann.gauss.math;
 
-import io.bussmann.fpr.gauss.types.GaussMatrix;
+import io.bussmann.gauss.types.GaussMatrix;
 import org.junit.jupiter.api.Test;
 
 import java.util.Vector;

@@ -1,7 +1,7 @@
-package io.bussmann.fpr.gauss.types;
+package io.bussmann.gauss.types;
 
-import io.bussmann.fpr.gauss.helpers.Subscript;
-import io.bussmann.fpr.gauss.helpers.Superscript;
+import io.bussmann.gauss.helpers.Subscript;
+import io.bussmann.gauss.helpers.Superscript;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 

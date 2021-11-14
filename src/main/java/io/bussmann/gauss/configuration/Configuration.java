@@ -1,4 +1,4 @@
-package io.bussmann.fpr.gauss.configuration;
+package io.bussmann.gauss.configuration;
 
 import java.util.Map;
 

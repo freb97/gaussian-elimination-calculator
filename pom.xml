@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.bussmann</groupId>
-    <artifactId>fpr.gauss</artifactId>
+    <artifactId>gauss</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>fpr-gauss</name>
+    <name>gauss</name>
     <packaging>jar</packaging>
 
     <properties>
@@ -78,7 +78,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>libs/</classpathPrefix>
-                            <mainClass>io.bussmann.fpr.gauss.Main</mainClass>
+                            <mainClass>io.bussmann.gauss.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -110,7 +110,7 @@
                     <execution>
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>io.bussmann.fpr.gauss/io.bussmann.fpr.gauss.Main</mainClass>
+                            <mainClass>io.bussmann.gauss/io.bussmann.gauss.Main</mainClass>
                         </configuration>
                     </execution>
                 </executions>
@@ -129,7 +129,7 @@
                     <arguments>
                         <argument>-classpath</argument>
                         <classpath/>
-                        <argument>io.bussmann.fpr.gauss.Main</argument>
+                        <argument>io.bussmann.gauss.Main</argument>
                     </arguments>
                 </configuration>
             </plugin>

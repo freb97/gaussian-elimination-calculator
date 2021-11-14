@@ -1,10 +1,10 @@
-package io.bussmann.fpr.gauss.gui.controllers;
+package io.bussmann.gauss.gui.controllers;
 
-import io.bussmann.fpr.gauss.math.GaussianElimination;
-import io.bussmann.fpr.gauss.types.GaussMatrix;
-import io.bussmann.fpr.gauss.types.GaussMatrixInput;
-import io.bussmann.fpr.gauss.types.GaussMatrixOutput;
-import io.bussmann.fpr.gauss.types.GaussMatrixSolutionTrace;
+import io.bussmann.gauss.math.GaussianElimination;
+import io.bussmann.gauss.types.GaussMatrix;
+import io.bussmann.gauss.types.GaussMatrixInput;
+import io.bussmann.gauss.types.GaussMatrixOutput;
+import io.bussmann.gauss.types.GaussMatrixSolutionTrace;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;

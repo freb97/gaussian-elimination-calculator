@@ -1,9 +1,9 @@
-package io.bussmann.fpr.gauss;
+package io.bussmann.gauss;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import io.bussmann.fpr.gauss.configuration.Configuration;
-import io.bussmann.fpr.gauss.gui.MainApplication;
+import io.bussmann.gauss.configuration.Configuration;
+import io.bussmann.gauss.gui.MainApplication;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,7 +11,7 @@ import java.io.InputStream;
 /**
  * Main class.
  *
- * FPR Gauß algorithm application entry.
+ * Gauß algorithm application entry.
  *
  * @author Frederik Bussmann
  */
@@ -25,6 +25,8 @@ public class Main {
      * Main loop.
      *
      * @param args Program arguments.
+     *
+     * @throws IOException If configuration file not found.
      */
     public static void main(final String[] args) throws IOException {
         config = initializeAppConfiguration();
@@ -36,6 +38,8 @@ public class Main {
      * Initializes the main application configuration.
      *
      * @return The initialized configuration instance.
+     *
+     * @throws IOException If configuration file not found.
      */
     private static Configuration initializeAppConfiguration() throws IOException {
         var mapper = new ObjectMapper(new YAMLFactory());

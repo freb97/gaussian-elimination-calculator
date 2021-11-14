@@ -1,7 +1,7 @@
-package io.bussmann.fpr.gauss.math;
+package io.bussmann.gauss.math;
 
-import io.bussmann.fpr.gauss.types.GaussMatrix;
-import io.bussmann.fpr.gauss.types.GaussMatrixSolutionTrace;
+import io.bussmann.gauss.types.GaussMatrix;
+import io.bussmann.gauss.types.GaussMatrixSolutionTrace;
 
 import java.util.Vector;
 

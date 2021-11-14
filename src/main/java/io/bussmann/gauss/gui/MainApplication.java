@@ -1,6 +1,6 @@
-package io.bussmann.fpr.gauss.gui;
+package io.bussmann.gauss.gui;
 
-import io.bussmann.fpr.gauss.Main;
+import io.bussmann.gauss.Main;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,7 +12,7 @@ import java.util.Objects;
 /**
  * Main application.
  *
- * FPR Gauß algorithm application entry.
+ * Gauß algorithm application entry.
  *
  * @author Frederik Bußmann
  */
@@ -48,7 +48,7 @@ public class MainApplication extends Application {
      */
     private void initializeAppStage(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("fxml/main-view.fxml"));
-        String cssFile = Objects.requireNonNull(Main.class.getResource("css/fpr-gauss.css")).toExternalForm();
+        String cssFile = Objects.requireNonNull(Main.class.getResource("css/main.css")).toExternalForm();
 
         stage.setTitle(Main.config.get("title"));
         stage.setMinWidth(Integer.parseInt(Main.config.get("stage:minWidth")));
