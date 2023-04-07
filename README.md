@@ -1,14 +1,14 @@
 # Gaussian Elimination Calculator
 
-A calculator for the gaussian 
-elimination algorithm to solve systems of linear equations
-with multiple unknown variables, written in Java.
+A calculator for the gaussian elimination algorithm to solve
+systems of linear equations with multiple unknown variables,
+written in Java.
 
-For understanding the maths behind it, the calculator has
-a built-in calculation path step trace, and an easy-to-use GUI.
-Note that the calulator will only change a given matrix to the
-reduced row echelon form, from which the solution vector can
-be read.
+This project is intended for education purposes. For understanding
+the maths behind it, the calculator has a built-in calculation path
+step trace, and an easy-to-use GUI. Note that the calculator will
+only change a given matrix to the reduced row echelon form, from
+which the solution vector can be read.
 
 This calculator currently only works with uniquely solvable matrices.
 
@@ -18,6 +18,7 @@ file, with the matrix data being held in an instance of the
 [GaussMatrix.java](https://github.com/freb97/gaussian-elimination-calculator/blob/main/src/main/java/io/bussmann/gauss/types/GaussMatrix.java)
 class.
 
+![Calculator program UI](https://github.com/freb97/gaussian-elimination-calculator/blob/main/src/main/resources/io/bussmann/gauss/img/program.png)
 
 ## Getting started
 
