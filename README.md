@@ -18,7 +18,7 @@ file, with the matrix data being held in an instance of the
 [GaussMatrix.java](https://github.com/freb97/gaussian-elimination-calculator/blob/main/src/main/java/io/bussmann/gauss/types/GaussMatrix.java)
 class.
 
-![Calculator program UI](https://github.com/freb97/gaussian-elimination-calculator/blob/main/src/main/resources/io/bussmann/gauss/img/program.png)
+![Calculator program UI](https://raw.githubusercontent.com/freb97/gaussian-elimination-calculator/main/src/main/resources/io/bussmann/gauss/img/program.png)
 
 ## Getting started
 
@@ -52,7 +52,7 @@ If you don't want to use the same VM as maven, you can pass
 the ```.jar``` file to the locally installed java runtime:
 
 ```bash
-$ java -jar ./target/gauss-1.0-SNAPSHOT.jar
+$ java -jar ./target/gauss-1.1-jar-with-dependencies.jar
 ```
 
 ### Documentation
