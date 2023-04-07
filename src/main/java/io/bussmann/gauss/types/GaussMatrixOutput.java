@@ -5,6 +5,8 @@ import io.bussmann.gauss.helpers.Superscript;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 
+import java.text.DecimalFormat;
+
 /**
  * Gauss matrix output.
  *
@@ -70,12 +72,9 @@ public class GaussMatrixOutput extends GridPane {
      * @param value The value to set.
      */
     private void setValue(Label label, double value) {
-        if (value == (long) value) {
-            label.setText(String.format("%d", (long) value));
-        }
-        else {
-            label.setText(String.format("%s", value));
-        }
+        DecimalFormat decimalFormat = new DecimalFormat("#.#####");
+
+        label.setText(decimalFormat.format(value));
     }
 
     /**

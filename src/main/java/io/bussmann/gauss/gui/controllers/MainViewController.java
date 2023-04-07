@@ -82,7 +82,7 @@ public class MainViewController {
         int currentRow = 0;
         for (int step = 0; step < trace.getStepCount(); step++) {
             GaussMatrix currentStepMatrix = trace.getStep(step);
-            String currentStepLabel = "";
+            String currentStepLabel;
 
             if (step == trace.getStepCount() - 1 && trace.invalid) {
                 currentStepLabel = trace.getStepLabel(step);
